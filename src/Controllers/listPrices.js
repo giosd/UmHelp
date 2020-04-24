@@ -1,4 +1,4 @@
-const sequelize = require('../Connection');
+const sequelize = require('../database/Index');
 const price = require('../models/Price');
 
 module.exports = {
