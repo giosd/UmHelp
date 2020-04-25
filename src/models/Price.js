@@ -1,32 +1,17 @@
 
-const connection = require('../database/Index')
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory:');
+const { Model,DataTypes } = require('sequelize');
 
-const Price = sequelize.define('price', {
-  servico: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  valor: {
-    type: DataTypes.DOUBLE
- 
-  }
-}, {
-  
-});
+class Price extends Model{
+    static init(sequelize){
+        super.init({
+            servico: DataTypes.STRING,
+            valor: DataTypes.DOUBLE
+        
+        },{
+            sequelize
+        })
+    }
+}
 
-
-console.log(Price === sequelize.models.Price); // true
-
-// const Price = Sequelize.define('price', {
-//     servico:{
-//         type: Sequelize.STRING
-//     },
-//     valor:{
-//         type: Sequelize.DOUBLE
-//     }
-    
-// })
 
 module.exports = Price;

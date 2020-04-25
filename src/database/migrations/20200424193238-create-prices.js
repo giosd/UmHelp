@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     
-      return queryInterface.createTable('price', { 
+      return queryInterface.createTable('prices', { 
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -19,11 +19,11 @@ module.exports = {
           type: Sequelize.DOUBLE
        
         },
-        created_at:{
+        createdAt:{
           type: Sequelize.DATE,
           allowNul : false
         },
-        updated_at:{
+        updatedAt:{
           type: Sequelize.DATE,
           allowNul : false
         } });

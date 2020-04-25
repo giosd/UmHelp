@@ -7,6 +7,8 @@ router.get('/',(request,result)=>{
     result.send('Cadastrado')
 });
 
-router.get('/Price/:id',priceController.listPrices)
+router.post('/incPrice', priceController.incPrices)
+
+router.get('/listPrice',priceController.listPrices)
 
 module.exports = router;

@@ -1,6 +1,10 @@
-GET http://localhost:3003/Price/21
+get http://localhost:3003/listPrice
 Content-Type: application/json
 
+# {
+#     "servico": "servico 1",
+#     "valor": 100
+# }
 
     
     

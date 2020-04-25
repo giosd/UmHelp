@@ -1,18 +1,31 @@
 const sequelize = require('../database/Index');
-const price = require('../models/Price');
+const Price = require('../models/Price');
 
 module.exports = {
 
+  async listPrices (req,res){  
+    try{  
 
-    async listPrices (request,result){
+      const price = await Price.findAll();
+
+      return res.json(price);
+    } catch (error) {
+      res.send(error);
+      console.log(error);       
+    }
+    
+  },
+    async incPrices (req,res){
 
       try {
+        const {servico,valor} = req.body;
 
-       const resultado = await price.findAll();
-       result.send(resultado);
+        const price = await Price.create({servico,valor});
+         return res.json(price);
+      
 
       } catch (error) {
-        result.send(error);
+        res.send(error);
         console.log(error);       
       }
       }
