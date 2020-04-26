@@ -1,10 +1,40 @@
-get http://localhost:3003/listPrice
+get http://localhost:3003/price/2
 Content-Type: application/json
 
 # {
-#     "servico": "servico 1",
-#     "valor": 100
+#     "servico": "servico 3",
+#     "valor": 300
 # }
 
+###
+post http://localhost:3003/incPrice
+Content-Type: application/json
+
+{
+    "servico": "servico 3",
+    "valor": 300
+}
     
+###
+post http://localhost:3003/request
+Content-Type: application/json
+
+{
+    "data":"10/10/2020",
+    "duracao":"10",
+    "idCliente": 1,
+    "idServico": 3
+}
+    
+###
+
+post http://localhost:3003/discounts
+Content-Type: application/json
+
+{
+    "tipoDesconto":1,
+    "valor":10,
+    "idCliente": 1
+}
+
     

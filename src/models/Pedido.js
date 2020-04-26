@@ -5,7 +5,9 @@ class Pedido extends Model {
         super.init({
             idCliente: DataTypes.INTEGER,
             data: DataTypes.DATE,
-            duracao: DataTypes.STRING
+            duracao: DataTypes.STRING,
+            idServico: DataTypes.INTEGER,
+            valor: DataTypes.DOUBLE
 
         },{
             sequelize

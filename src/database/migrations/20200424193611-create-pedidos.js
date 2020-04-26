@@ -21,6 +21,13 @@ module.exports = {
       duracao: {
         type: Sequelize.STRING,
         allowNull: false
+      }, 
+      idServico:{
+        type: Sequelize.INTEGER,
+          allowNull: false
+      },
+      valor:{
+        type: Sequelize.DOUBLE
       },
       createdAt:{
         type: Sequelize.DATE,
