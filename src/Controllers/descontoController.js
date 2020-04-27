@@ -2,10 +2,9 @@ const sequelize = require('../database/Index');
 const Descontos = require('../models/Desconto');
 
 module.exports = {
-
+    //busca o desconto pelo seu Id e atualiza os campos e valores que são passados no body.
     async patchDiscounts(req, res) {
         try {
-            //busca o usuário pelo seu Id e atualiza os campos e valores que são passados no body.
             const desconto = await Descontos.update(req.body, {
                 where: { id: req.params.id }
             })
@@ -23,7 +22,7 @@ module.exports = {
             return res.send(error)
         }
     },
-
+    //bussca todos os descontos
     async allDiscounts(req, res) {
         try {
             const descontos = await Descontos.findAll();
@@ -33,7 +32,7 @@ module.exports = {
         }
 
     },
-
+    //deleta o desconto passado por parametro
     async deleteDiscounts(req, res) {
         try {
             const idDesconto = req.params.id
@@ -43,7 +42,15 @@ module.exports = {
                 }
             });
 
-            return res.json(desconto);
+            if (desconto > 0) {
+                return res.send({
+                    Message: "Desconto deletado com sucesso"
+                });
+            } else {
+                return res.send({
+                    Message: "Desconto não cadastrado"
+                });
+            }
 
         } catch (error) {
             res.send(error);
@@ -52,7 +59,7 @@ module.exports = {
         }
 
     },
-
+    //cadastra um novo desconto
     async createDiscounts(req, res) {
         try {
             const { tipoDesconto, valor, idCliente } = req.body;
@@ -64,11 +71,12 @@ module.exports = {
             res.send(error);
             console.log(error);
         }
-    }
-    ,
+    },
+    //atualisa um desconto todo pelo seu id
     async putDiscounts(req, res) {
 
         try {
+
             const { id, tipoDesconto, valor, idCliente, active } = req.body;
             const discounts = await Descontos.update({
                 id: id,
@@ -78,10 +86,18 @@ module.exports = {
                 active: active
             }, {
                 where: {
-                    id: id
+                    id: req.params.id
                 }
             })
-            return res.json(discounts);
+            if (discounts > 0) {
+                return res.send({
+                    Message: "Desconto alterado com sucesso"
+                });
+            } else {
+                return res.send({
+                    Message: "Desconto não cadastrado"
+                });
+            }
         } catch (error) {
             res.send(error);
             console.log(error);

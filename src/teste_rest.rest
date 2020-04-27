@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "data":"10/10/2020",
     "duracao":"10",
-    "idCliente": 2,
+    "idCliente": 1,
     "idServico": 5
 }
 ###
@@ -34,19 +34,6 @@ Content-Type: application/json
     "valor":111
 }
 
-###
-
-PATCH  http://localhost:3003/price/2
-Content-Type: application/json
-
-{
-    "valor":30
-}
-
-###
-get http://localhost:3003/price/21
-Content-Type: application/json
-
 
 ###
 
@@ -64,7 +51,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3003/request
+PUT http://localhost:3003/request/39
 Content-Type: application/json
 
 {
@@ -76,11 +63,11 @@ Content-Type: application/json
     "valor":999
 }
 ###
-DELETE  http://localhost:3003/request/10
+DELETE  http://localhost:3003/request/12
 Content-Type: application/json
 
 ###
-PUT http://localhost:3003/discounts
+PUT http://localhost:3003/discounts/16
 Content-Type: application/json
 
 {    
@@ -91,31 +78,11 @@ Content-Type: application/json
     "active": "N"
 }
 ###
-DELETE  http://localhost:3003/discounts/17
+DELETE  http://localhost:3003/discounts/18
 Content-Type: application/json
 
 
 ###
-put http://localhost:3003/Price
-Content-Type: application/json
-
-{
-    "id":1,
-    "servico": "servico 3",
-    "valor": 3000
-}
-###
-DELETE http://localhost:3003/Price/4
-Content-Type: application/json
-
-###
-post http://localhost:3003/incPrice
-Content-Type: application/json
-
-{
-    "servico": "servico 5",
-    "valor": 30
-}
 
 
 
