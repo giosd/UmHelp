@@ -1,4 +1,4 @@
-const {Router} = require ('express');
+const { Router } = require('express');
 const priceController = require('./Controllers/listPrices')
 const requestController = require('./Controllers/listPedidos')
 const discountsController = require('./Controllers/descontoController')
@@ -6,23 +6,53 @@ const discountsController = require('./Controllers/descontoController')
 
 const router = Router();
 
-router.get('/',(request,result)=>{
+router.get('/', (request, result) => {
     result.send('Cadastrado')
 });
 
-router.post('/incPrice', priceController.incPrices)
+router.get('/discounts', discountsController.allDiscounts);
 
-router.get('/listPrice',priceController.listPrices)
+router.post('/discounts', discountsController.createDiscounts);
 
-router.get('/idPrice/:id',priceController.idPrice)
+router.put('/discounts', discountsController.putDiscounts);
 
-router.post('/request',requestController.createRequest)
+router.patch('/discounts/:id', discountsController.patchDiscounts);
+
+router.delete('/discounts/:id', discountsController.deleteDiscounts);
+
+router.get('/request/:id', requestController.listPedido);
+
+router.patch('/price/:id', priceController.patchPrice);
+
+router.post('/request', requestController.orcamentoRequest)
+
+router.post('/createRequest', requestController.createRequest);
+
+router.get('/request', requestController.listAllPedidos);
+
+router.put('/request', requestController.putPedido);
+
+router.patch('/request/:id', requestController.patchPedido);
+
+router.delete('/request/:id', requestController.deletePedido);
+
+[
+
+]
 
 //
 
-router.post('/discounts',discountsController.createDiscounts)
+router.post('/incPrice', priceController.incPrices)
+
+router.get('/listPrice', priceController.listPrices)
+
+router.put('/Price', priceController.putPrice);
+
+router.delete('/Price/:id', priceController.deletePrice)
+
+//
 
 
-router.get('/price/:id',requestController.listPedido);
+
 
 module.exports = router;

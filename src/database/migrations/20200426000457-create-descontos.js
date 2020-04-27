@@ -2,8 +2,8 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('descontos',{
-      id:{
+    return queryInterface.createTable('descontos', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -14,21 +14,26 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      valor:{
-        type: Sequelize.INTEGER,
-        allowNull:false
-      },
-      idCliente:{
+      valor: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      createdAt:{
-        type: Sequelize.DATE,
-        allowNul : false
+      idCliente: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
-      updatedAt:{
+      active: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "S"
+      },
+      createdAt: {
         type: Sequelize.DATE,
-        allowNul : false
+        allowNul: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNul: false
       }
     }
     )

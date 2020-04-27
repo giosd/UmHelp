@@ -2,17 +2,17 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    
-    return queryInterface.createTable('pedidos',{
-      id:{
+
+    return queryInterface.createTable('pedidos', {
+      id: {
         type: Sequelize.INTEGER,
-          primaryKey: true,
-          autoIncrement: true,
-          allowNull: false
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
       },
-      idCliente:{
+      idCliente: {
         type: Sequelize.INTEGER,
-          allowNull: false
+        allowNull: false
       },
       data: {
         type: Sequelize.DATE,
@@ -21,21 +21,21 @@ module.exports = {
       duracao: {
         type: Sequelize.STRING,
         allowNull: false
-      }, 
-      idServico:{
-        type: Sequelize.INTEGER,
-          allowNull: false
       },
-      valor:{
+      idServico: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      valor: {
         type: Sequelize.DOUBLE
       },
-      createdAt:{
+      createdAt: {
         type: Sequelize.DATE,
-        allowNul : false
+        allowNul: false
       },
-      updatedAt:{
+      updatedAt: {
         type: Sequelize.DATE,
-        allowNul : false
+        allowNul: false
       }
     })
   },

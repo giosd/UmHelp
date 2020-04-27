@@ -4,10 +4,10 @@ module.exports = {
     username: 'root',
     password: '12345',
     database: 'teste2',
-    define:{
+    define: {
         timestamps: true
 
     },
-    logging:false
+    logging: false
 
 }
